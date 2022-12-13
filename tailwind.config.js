@@ -5,7 +5,10 @@ module.exports = {
     "./components/**/*.{ts,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      "Josefin": ["Josefin Sans"],
+
+    },
     colors:{
       white:{
         basic:"#FFFFFF"
@@ -19,9 +22,6 @@ module.exports = {
         transitiontextbutton:'#EEA3A3'
       },
     },
-    fontFamily:{
-      display:['Inter']
-    }
   },
   plugins: [],
 }

@@ -5,34 +5,24 @@ export default function Form(){
 
     const [email, setEmail] = useState('')
 
-    async function subscribe () {
-        
+    async function subscribe (event: { preventDefault: () => void }) {
+        event.preventDefault()
         console.log('opa')
         try{
-            const response = await axios.post('api/subscribe',{email})
-            console.log(response)
+            await axios.get('api/addsubscribe')
         }catch(error){
-            console.log(error)
+            console.error(error)
         }
+        
+        
     }
 
     return(
     <>
-    <form className="flex " onSubmit={subscribe}>
+    <form className="flex " action="https://gmail.us8.list-manage.com/subscribe/post?u=0b108e402652dad14db9e9234&amp;id=d8461c44cb&amp;f_id=00366ae0f0" method="post">
 
-        <input
-            className="border w-full md:w-1/2 p-3" 
-            type="email" 
-            id="email-input"
-            name="email"
-            placeholder="Seu melhor e-mail!" 
-            required
-            value={email}
-            onChange={(e)=> setEmail(e.target.value)}
-            autoCapitalize='off'
-            autoCorrect='off'
-            aria-label="E-mail completo."/>
-        <button className="p-2 ml-4 border text-pallet-third w-full md:w-1/2 bg-pallet-primary hover:bg-pallet-transitionbutton active:bg-pallet-primary active:text-pallet-transitiontextbutton font-black	 " type="submit" value='' name="subscribe">
+       
+        <button className="p-2  border text-pallet-third w-1/2 md:w-full bg-pallet-primary hover:bg-pallet-transitionbutton active:bg-pallet-primary active:text-pallet-transitiontextbutton font-black	 " type="submit" value='' name="subscribe">
             Inscreva-se na Newsletter
         </button>
     </form>
